@@ -24,8 +24,8 @@ If $Result = 0 Then
 EndIf
 
 While 1
-   Local msgText = "Enter part of the path that will be removed." & @CRLF & "For example: C:\Program Files\CryTek\Far Cry"
-   $DefaultPath = InputBox ($appTitle, msgText, "", "", 320, 160)
+   Local $msgText = "Enter part of the path that will be removed." & @CRLF & "For example: C:\Program Files\CryTek\Far Cry"
+   $DefaultPath = InputBox ($appTitle, $msgText, "", "", 320, 160)
    If @error = 1 Then
 	  Exit
    ElseIf $DefaultPath = "" Then
