@@ -49,3 +49,19 @@ Func Group ($strLine)
    $intGroup = StringMid($intGroup, 1, $intCommaPosition)
    Return Number($intGroup)
 EndFunc
+
+Func ErrorWrite($txtLine)
+	Local $hErrorFile = FileOpen ("autodup_error.log", $FO_APPEND)
+	If @error = -1 Then
+		MsgBox($MB_ICONERROR, "Error Open File", "Can not opet file!")
+		FileClose($hErrorFile)
+		Return 1
+	EndIf
+
+	If Not FileWriteLine($hErrorFile, $txtLine) Then
+		MsgBox($MB_ICONERROR, "Error File Write", "Can not write to file!")
+		Return 2
+	EndIf
+
+	Return 0
+EndFunc
